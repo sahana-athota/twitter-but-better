@@ -1,0 +1,27 @@
+*,*:after,*:before{
+  box-sizing: border-box;
+}
+body{
+  font-family:arial;
+  font-size: 16px;
+  margin:0;
+  background: linear-gradient(to right top, #0ecae8, #0ee894);
+  min-height: 100vh;
+}
+
+.search_select_box{
+  max-width: 400px;
+  margin: 80px auto;
+}
+
+.search_select_box select{
+  width: 100%;
+}
+
+.search_select_box button{
+  background-color: #080342;
+  padding: 15px 25px;
+  color: #fff;
+  font-size: 20px;
+}
+

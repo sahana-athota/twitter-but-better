@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="s.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Twitter But Better</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+
+    <style>
+    #comment.form-control {
+            color: white; /* Change the input text color to white */
+        }
+.form-control::placeholder {
+        color: white; /* Change the placeholder text color to white */
+    }
+.form-control {
+    color: white; /* Change the input text color to white */
+}
+input::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #fff;
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:    #fff;
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:    #fff;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #fff;
+}
+.rightstatic{
+position:fixed;
+}
+.card123 {
+ width: 300px;
+ height: 630px;
+ background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
+ border-radius: 20px;
+ transition: all .3s;
+}
+
+.card2 {
+ width: 300px;
+ height: 630px;
+ background-color: #1a1a1a;
+ border-radius:20px;
+ transition: all .2s;
+ color:#FFFFFF;
+}
+
+.card2:hover {
+ transform: scale(0.95);
+ border-radius: 20px;
+}
+
+.card123:hover {
+ box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);
+}
+    .cards {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cards .black {
+  background-color: #020d4a;
+}
+
+.cards .blue {
+  background-color: #3b82f6;
+}
+
+.cards .green {
+  background-color: #22c55e;
+}
+
+.cards .card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  height: 120px;
+  width: 550px;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  transition: 600ms;
+}
+
+.cards .card p.tip {
+  font-size: 0.8em;
+  font-weight: 700;
+}
+
+.cards .card p.second-text {
+  font-size: .7em;
+}
+
+span:hover + ol {
+  display: block;
+  transform: scale(1.05, 1.05);
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+span:hover + ol li {
+  display: block;
+  transform: scale(0.9, 0.9);
+}
+
+.cards .card:hover {
+  transform: scale(1.1, 1.1);
+}
+.cards:hover > .card:not(:hover) {
+
+  transform: scale(0.8, 0.8);
+}
+
+
+ol {
+
+    background: linear-gradient(90deg, rgba(37,23,89,0.46262254901960786) 0%, rgba(68,53,96,0.12088585434173671) 35%, rgba(37,23,80,0.4150035014005602) 100%);
+    padding: 10px;
+    display:none;
+    transition: 600ms;
+    border-radius: 10px;
+    animation: fadeIn 1.8s;
+
+
+}
+ol li {
+  padding: 5px;
+  background: radial-gradient(circle, rgba(215,90,162,0.2861519607843137) 0%, rgba(50,20,120,0.2805497198879552) 100%);
+  opacity:0.7;
+  margin-left: 10px;
+  display:none;
+  transition: 600ms;
+}
+
+
+
+
+
+
+
+
+
+    </style>
+
+</head>
+
+<body style="color:White;
+background: rgb(0,0,0);
+background: #080530;">
+<div class="container">
+    <div class="profile-page tx-13">
+        <div class="row">
+
+        </div>
+        <div class="row profile-body" style="color:Black;">
+            <!-- left wrapper start -->
+            <div class="d-none d-md-block col-md-4 col-xl-3 left-wrapper">
+                <div class="card rounded" style="background:#1a1a1a; color:#fff;">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center justify-content-between mb-2">
+                            <h6 class="card-title mb-0">Latest News for {{sessionusername}}</h6>
+                            <div class="dropdown">
+                                <button class="btn p-0" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                        aria-haspopup="true" aria-expanded="false">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                         stroke-linejoin="round"
+                                         class="feather feather-more-horizontal icon-lg text-muted pb-3px">
+                                        <circle cx="12" cy="12" r="1"></circle>
+                                        <circle cx="19" cy="12" r="1"></circle>
+                                        <circle cx="5" cy="12" r="1"></circle>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                             stroke-linecap="round" stroke-linejoin="round"
+                                             class="feather feather-edit-2 icon-sm mr-2">
+                                            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+                                        </svg>
+                                        <span class="">Edit</span></a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                             stroke-linecap="round" stroke-linejoin="round"
+                                             class="feather feather-git-branch icon-sm mr-2">
+                                            <line x1="6" y1="3" x2="6" y2="15"></line>
+                                            <circle cx="18" cy="6" r="3"></circle>
+                                            <circle cx="6" cy="18" r="3"></circle>
+                                            <path d="M18 9a9 9 0 0 1-9 9"></path>
+                                        </svg>
+                                        <span class="">Update</span></a>
+                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                             stroke-linecap="round" stroke-linejoin="round"
+                                             class="feather feather-eye icon-sm mr-2">
+                                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                            <circle cx="12" cy="12" r="3"></circle>
+                                        </svg>
+                                        <span class="">View all</span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <p>
+                            {%for i in text%}
+                            {{i}}
+                            <br>
+                            <br>
+                            {%endfor%}</p>
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- left wrapper end -->
+            <!-- middle wrapper start -->
+            <div class="col-md-8 col-xl-6 middle-wrapper" style="color:White;">
+
+                <br>
+                <center>
+                    <h2> POSTS 📜</h2></center>
+                <br>
+                <br>
+                <div class="cards">
+                    {%for i in posts%}
+                    <br>
+                    <div>
+                        <button type="button" class="btn btn-primary">
+                            <a style="color: white;text-decoration: none;" href='about/{{i[3][0]}}'>
+                                Post by <span class="badge rounded-pill text-bg-info">{{i[3][0]}}</span>
+                            </a>
+                        </button>
+                    </div>
+                    <span>
+                    <div class="card black">
+                        <div class="card black">
+                            <p class="tip">{{i[0]}}</p>
+                            <p class="second-text">{{i[1]}}</p>
+
+                        </div>
+
+                    </div>
+                        <br>
+                    </span>
+
+                    <ol>
+                        <br>
+                        <div class="w3-container">
+                            <p>Comments:</p>
+                            {% set comments = i[2] %}
+
+                            <p id="com">{%for i in comments%}</p>
+                            <li style="line-height: 1.2;color:white;background:#110b80; lighten;opacity: 0.8; ">{{i}}
+                            </li>
+                            {%endfor%}
+                        </div>
+                    </ol>
+                    <form method="POST">
+                        <input type="hidden" name="likedpost" value="{{i[0]}}">
+                        <input class="btn btn-outline-danger" type="submit" value="♥ Like">
+
+
+                    </form>
+                </div>
+
+
+                <div class="cards">
+                    <form method="POST">
+                        <input type="hidden" name="dislikedpost" value="{{i[0]}}">
+                        <input class="btn btn-outline-danger" type="submit" value="👎🏻 Dislike">
+                    </form>
+
+                    <form action="#" method="POST">
+                        <div class="input-group mb-3">
+                            <input type="hidden" name="commentpost" value="{{i}}">
+                            <input type="text" class="form-control" id="comment" name="comment"
+                                   placeholder="Enter Comments" autocomplete="off"
+                                   style="background: #0d0861;border:#75068A;
+">
+                            <div class="input-group-append">
+                                <input class="btn btn-outline-danger" type="submit" value="Submit">
+                            </div>
+                            <br>
+                        </div>
+
+                    </form>
+
+                    </center>
+
+
+                    <br>
+                    <br>
+                    {%endfor%}
+                </div>
+
+
+            </div>
+
+            <!-- middle wrapper end -->
+            <!-- right wrapper start -->
+            <div class="d-none d-md-block col-md-4 col-xl-3 left-wrapper">
+
+                <div class='rightstatic'>
+                    <h1></h1>
+                    <div class="card123">
+                        <div class="card2" style="color:White;">
+
+                            <center>
+                                <h3> Add Posts </h3>
+                                <a href="postcreationpage"><img src="https://i.postimg.cc/B6Y59GWD/ezgif-com-crop.gif"
+                                                                width="50" height="40"></a>
+
+                            </center>
+                            <br>
+                            <center>
+                                <h3>All My Posts </h3>
+                                <a class="btn btn-primary" a href="about/{{sessionusername}}" role="button">🧔🏻</a>
+                            </center>
+                            <br>
+                            <center>
+                                <h3> Change Password </h3>
+                                <a class="btn btn-primary" a href="passwordreset" role="button">🔐</a>
+                            </center>
+
+                            <br>
+                            <center>
+                                <h3> Logout </h3>
+                                <a class="btn btn-primary" a href="/" role="button">👋</a>
+                            </center>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+
+
+</body>
+</head>
